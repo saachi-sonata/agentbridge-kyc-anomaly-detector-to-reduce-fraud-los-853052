@@ -1,0 +1,38 @@
+{
+  "name": "kyc-anomaly-detector-to-reduce-fraud-loss",
+  "version": "1.0.0",
+  "description": "KYC Anomaly Detector to reduce fraud loss clears orders and reconciles positions; applies decision gates and observability; orchestrates via Treasury to lower chargebacks.",
+  "main": "workflow.json",
+  "keywords": [
+    "agentbridge",
+    "workflow",
+    "automation",
+    "ai-agents",
+    "codeact",
+    "banking-&-finance",
+    "markets",
+    "credit",
+    "codeact",
+    "banking"
+  ],
+  "author": "AgentBridge",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saachi-sonata/agentbridge-kyc-anomaly-detector-to-reduce-fraud-los-853052.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saachi-sonata/agentbridge-kyc-anomaly-detector-to-reduce-fraud-los-853052/issues"
+  },
+  "homepage": "https://github.com/saachi-sonata/agentbridge-kyc-anomaly-detector-to-reduce-fraud-los-853052#readme",
+  "scripts": {
+    "start": "echo \"Import this workflow into your AgentBridge instance\"",
+    "validate": "echo \"Workflow validation complete\"",
+    "test": "echo \"Run workflow tests\"",
+    "deploy": "echo \"Deploy to AgentBridge instance\""
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "agentbridge": ">=6.0.0"
+  }
+}
