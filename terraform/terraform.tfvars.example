@@ -1,0 +1,10 @@
+# Copy this file to terraform.tfvars and fill in your values
+# NEVER commit terraform.tfvars to version control
+
+# ──── Provider Credentials ────
+do_token = "your-digitalocean-api-token"
+
+# ──── Configuration ────
+region        = "nyc1"
+instance_type = "s-2vcpu-4gb"
+environment   = "production"
