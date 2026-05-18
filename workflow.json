@@ -1,0 +1,351 @@
+{
+  "id": "tpl-3226437682",
+  "name": "KYC Anomaly Detector to reduce fraud loss",
+  "description": "KYC Anomaly Detector to reduce fraud loss clears orders and reconciles positions; applies decision gates and observability; orchestrates via Treasury to lower chargebacks.",
+  "industry": "Banking & Finance",
+  "pattern": "CodeAct",
+  "complexity": "Advanced",
+  "rating": 4.6,
+  "downloads": 22715,
+  "favorites": 298,
+  "executionTime": "14 min",
+  "tags": [
+    "markets",
+    "credit",
+    "codeact",
+    "banking"
+  ],
+  "steps": [
+    {
+      "id": "intake",
+      "name": "Transaction Intake",
+      "description": "Collect, validate and normalize alerts from Fraud Platform; attach a runId and timestamp for traceability."
+    },
+    {
+      "id": "program-synthesis-0",
+      "name": "Program Synthesis",
+      "description": "Execute program synthesis phase for the CodeAct pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "execution-1",
+      "name": "Execution",
+      "description": "Execute execution phase for the CodeAct pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "case-management-0",
+      "name": "Case Management",
+      "description": "Case Management across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "break-resolution-1",
+      "name": "Break Resolution",
+      "description": "Break Resolution across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "settlement-2",
+      "name": "Settlement",
+      "description": "Settlement across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "sanctions-screening-3",
+      "name": "Sanctions Screening",
+      "description": "Sanctions Screening across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "finalize",
+      "name": "Regulatory Report",
+      "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to Core Banking; return response JSON for the client."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "intake",
+      "type": "agentbridge",
+      "data": {
+        "label": "Transaction Intake",
+        "description": "Collect, validate and normalize alerts from Fraud Platform; attach a runId and timestamp for traceability.",
+        "nodeType": "input",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 60,
+        "y": 120
+      }
+    },
+    {
+      "id": "program-synthesis-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Program Synthesis",
+        "description": "Execute program synthesis phase for the CodeAct pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 310,
+        "y": 120
+      }
+    },
+    {
+      "id": "execution-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Execution",
+        "description": "Execute execution phase for the CodeAct pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 560,
+        "y": 120
+      }
+    },
+    {
+      "id": "case-management-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Case Management",
+        "description": "Case Management across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 810,
+        "y": 120
+      }
+    },
+    {
+      "id": "break-resolution-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Break Resolution",
+        "description": "Break Resolution across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1060,
+        "y": 120
+      }
+    },
+    {
+      "id": "settlement-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "Settlement",
+        "description": "Settlement across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1310,
+        "y": 120
+      }
+    },
+    {
+      "id": "sanctions-screening-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "Sanctions Screening",
+        "description": "Sanctions Screening across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1560,
+        "y": 120
+      }
+    },
+    {
+      "id": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "Regulatory Report",
+        "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to Core Banking; return response JSON for the client.",
+        "nodeType": "output",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1810,
+        "y": 120
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0",
+      "source": "intake",
+      "target": "program-synthesis-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-1",
+      "source": "program-synthesis-0",
+      "target": "execution-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-2",
+      "source": "execution-1",
+      "target": "case-management-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-3",
+      "source": "case-management-0",
+      "target": "break-resolution-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-4",
+      "source": "break-resolution-1",
+      "target": "settlement-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-5",
+      "source": "settlement-2",
+      "target": "sanctions-screening-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-6",
+      "source": "sanctions-screening-3",
+      "target": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    }
+  ],
+  "preview": "Transaction Intake → Program Synthesis → Execution → Case Management → Break Resolution → Settlement → Sanctions Screening → Regulatory Report",
+  "featured": true,
+  "createdAt": "2025-11-07T15:13:21.094Z",
+  "author": "AgentBridge Team",
+  "srcIdx": 31,
+  "deployments": 2281,
+  "lastDeployed": "2026-05-18T15:17:33.806Z",
+  "configuration": {
+    "provider": "aws",
+    "region": "us-west-2",
+    "compute": "gpu-single"
+  },
+  "healthStatus": "healthy",
+  "deploymentCount": 1142,
+  "githubRepo": "https://github.com/saachi-sonata/agentbridge-kyc-anomaly-detector-to-reduce-fraud-los-415683",
+  "maintainer": "AgentBridge Team",
+  "agenticLayers": {
+    "reasoning": {
+      "modelType": "gpt-4o",
+      "reasoningPattern": "ReAct",
+      "contextWindow": 128000,
+      "memorySystem": "hybrid",
+      "decisionFramework": "Multi-Criteria Decision Analysis"
+    },
+    "orchestration": {
+      "workflowEngine": "n8n",
+      "coordinationPattern": "centralized",
+      "failoverStrategy": "retry",
+      "loadBalancing": "intelligent"
+    },
+    "protocol": {
+      "communicationProtocol": "MCP",
+      "messageFormat": "JSON",
+      "authenticationMethod": "OAuth2",
+      "encryptionStandard": "AES-256"
+    },
+    "governance": {
+      "policyEngine": "OPA",
+      "complianceStandards": [
+        "SOC2",
+        "GDPR"
+      ],
+      "auditTrail": true,
+      "riskAssessment": "medium",
+      "dataClassification": "internal"
+    },
+    "observability": {
+      "metricsCollection": "Prometheus",
+      "loggingFramework": "ELK",
+      "tracingSystem": "Jaeger",
+      "alertingRules": [],
+      "dashboardConfig": {
+        "layout": "grid",
+        "widgets": [
+          "metrics",
+          "logs",
+          "traces"
+        ],
+        "refreshInterval": 30
+      }
+    },
+    "intelligence": {
+      "learningCapability": "online",
+      "knowledgeBase": "vector-db",
+      "adaptationMechanism": "ml-based",
+      "performanceOptimization": "ai-driven"
+    }
+  },
+  "businessFunction": "data-preparation-node",
+  "autonomyLevel": "semi-autonomous",
+  "cognitiveCapabilities": [
+    {
+      "name": "Pattern Recognition",
+      "description": "Identifies patterns in business processes",
+      "confidenceLevel": 0.85,
+      "lastUpdated": "2026-05-18T15:13:21.199Z"
+    }
+  ],
+  "roiMetrics": {
+    "costSavings": 34005,
+    "timeReduction": 48,
+    "accuracyImprovement": 37,
+    "throughputIncrease": 48,
+    "errorReduction": 62
+  },
+  "complianceFramework": {
+    "standards": [
+      "SOC2",
+      "GDPR",
+      "ISO27001"
+    ],
+    "certifications": [
+      "SOC2 Type II"
+    ],
+    "auditFrequency": "monthly",
+    "lastAudit": "2026-03-30T05:13:43.354Z"
+  },
+  "scalingPolicy": {
+    "minInstances": 1,
+    "maxInstances": 10,
+    "scaleUpThreshold": 80,
+    "scaleDownThreshold": 20,
+    "cooldownPeriod": 300
+  }
+}
