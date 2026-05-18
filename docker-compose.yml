@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  orchestration:
+    image: ${ORCHESTRATION_IMAGE:-n8nio/n8n:latest}
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${APPLICATION_AUTH_USER:-admin}
+      - N8N_BASIC_AUTH_PASSWORD=${APPLICATION_AUTH_PASSWORD}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - N8N_ENCRYPTION_KEY=${APPLICATION_ENCRYPTION_KEY}
+    volumes:
+      - ./workflow.json:/home/node/.n8n/workflows/workflow.json
+      - app_data:/home/node/.n8n
+    restart: unless-stopped
+
+volumes:
+  app_data:
+
+# SECURITY NOTE:
+# - Set APPLICATION_AUTH_PASSWORD in your .env file
+# - Never commit .env files to version control
+# - Use strong, unique passwords for production
